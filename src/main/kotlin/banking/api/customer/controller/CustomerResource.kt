@@ -5,6 +5,7 @@ import banking.api.customer.domain.CustomerRequest
 import banking.api.customer.domain.CustomerResponse
 import org.springframework.http.HttpStatus.OK
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -28,4 +29,10 @@ interface CustomerResource {
     @ResponseStatus(OK)
     @ResponseBody
     fun getAllCustomer(): List<CustomerResponse>
+
+    @GetMapping("/{id}")
+    @ResponseStatus(OK)
+    @ResponseBody
+    fun getCustomer(@PathVariable("id") customerId: String ): CustomerResponse
+
 }

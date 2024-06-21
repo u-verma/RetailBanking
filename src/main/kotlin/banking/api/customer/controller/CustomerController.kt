@@ -17,4 +17,10 @@ class CustomerController: CustomerResource{
     override fun getAllCustomer(): List<CustomerResponse> {
         return customerService.getAllCustomer()
     }
+
+    override fun getCustomer(customerId: String): CustomerResponse {
+        return customerService.getCustomer(customerId)
+    }
+
+
 }

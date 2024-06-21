@@ -5,6 +5,7 @@ import banking.api.customer.domain.CustomerRequest
 import banking.api.customer.domain.CustomerResponse
 import banking.api.customer.persitence.repository.AddressRepository
 import banking.api.customer.persitence.repository.CustomerRepository
+import org.springframework.web.client.HttpClientErrorException.NotFound
 
 class CustomerService {
 
@@ -32,5 +33,14 @@ class CustomerService {
                 email = it.email,
             )
         }
+    }
+
+    fun getCustomer(customerId: String): CustomerResponse {
+        return customerRepository.findById(customerId)?.let {
+            CustomerResponse(
+                id = it.id,
+                email = it.email,
+            )
+        } ?: throw RuntimeException("Customer not found")
     }
 }
