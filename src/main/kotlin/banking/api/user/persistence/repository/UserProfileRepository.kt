@@ -1,6 +1,6 @@
-package banking.api.user.persitence.repository
+package banking.api.user.persistence.repository
 
-import banking.api.user.persitence.entity.UserProfileEntity
+import banking.api.user.persistence.entity.UserProfileEntity
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 

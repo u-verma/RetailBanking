@@ -1,4 +1,4 @@
-package banking.api.user.persitence.entity
+package banking.api.user.persistence.entity
 
 import banking.api.user.domain.AddressType
 import banking.util.generateStringUUID

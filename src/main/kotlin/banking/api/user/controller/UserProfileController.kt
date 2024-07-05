@@ -1,5 +1,6 @@
 package banking.api.user.controller
 
+import banking.api.user.domain.UpdateUserProfileRequest
 import banking.api.user.domain.UserProfileRequest
 import banking.api.user.domain.UserProfileResponse
 import banking.api.user.service.UserProfileService
@@ -22,5 +23,9 @@ class UserProfileController(val userProfileService:UserProfileService): UserProf
 
     override fun getAllUserProfiles(): List<UserProfileResponse> {
         return userProfileService.getAllUserProfiles()
+    }
+
+    override fun updateUserProfile(id: String, updateRequest: UpdateUserProfileRequest): UserProfileResponse {
+        return userProfileService.updateUserProfile(id,updateRequest)
     }
 }

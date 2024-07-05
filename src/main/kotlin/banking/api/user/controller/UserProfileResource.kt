@@ -1,6 +1,7 @@
 package banking.api.user.controller
 
 import banking.api.user.controller.UserProfileResource.Companion.USER_PROFILE_ENDPOINT
+import banking.api.user.domain.UpdateUserProfileRequest
 import banking.api.user.domain.UserProfileRequest
 import banking.api.user.domain.UserProfileResponse
 import jakarta.websocket.server.PathParam
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
@@ -41,4 +43,9 @@ interface UserProfileResource {
     @ResponseStatus(OK)
     @ResponseBody
     fun getAllUserProfiles(): List<UserProfileResponse>
+
+    @PutMapping("/{id}")
+    @ResponseStatus(OK)
+    @ResponseBody
+    fun updateUserProfile(@PathVariable("id") id: String, @RequestBody request: UpdateUserProfileRequest): UserProfileResponse
 }

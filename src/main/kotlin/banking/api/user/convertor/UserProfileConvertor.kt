@@ -3,21 +3,23 @@ package banking.api.user.convertor
 import banking.api.user.domain.Address
 import banking.api.user.domain.UserProfileRequest
 import banking.api.user.domain.UserProfileResponse
-import banking.api.user.persitence.entity.AddressEntity
-import banking.api.user.persitence.entity.UserProfileEntity
+import banking.api.user.persistence.entity.AddressEntity
+import banking.api.user.persistence.entity.UserProfileEntity
 import banking.util.now
 import banking.util.toLocalDate
 import banking.util.toZoneDateTimeFromMilli
 
 fun UserProfileRequest.toUserProfileEntity(): UserProfileEntity {
     val userProfileEntity =  UserProfileEntity(
+        id = userId,
         type = userType,
         firstName = firstName,
         lastName = lastName,
         email = email,
         phone = phone,
         dateOfBirth = dateOfBirth.toLocalDate(),
-        createdAt = createdAt?.toZoneDateTimeFromMilli() ?: now()
+        modifyAt = now(),
+        createdAt = now(),
     )
     this.addresses.forEach {
         userProfileEntity.addresses.add(it.toAddressEntity(userProfileEntity))
@@ -38,6 +40,7 @@ fun Address.toAddressEntity(userProfileEntity: UserProfileEntity) =
 
 fun UserProfileEntity.userResponse() = UserProfileResponse(
     id = this.id,
+    userType = this.type,
     firstName = this.firstName,
     lastName = this.lastName,
     email = this.email,
