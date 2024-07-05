@@ -1,6 +1,7 @@
 package banking.api.customer.convertor
 
 import banking.api.customer.domain.CustomerRequest
+import banking.api.customer.domain.CustomerResponse
 import banking.api.customer.persitence.entity.AddressEntity
 import banking.api.customer.persitence.entity.CustomerEntity
 import banking.util.now
@@ -28,3 +29,10 @@ fun CustomerRequest.Address.toAddressEntity() =
         zip = zip,
         country = country,
     )
+
+fun CustomerEntity.toCustomerResponse() = CustomerResponse(
+    id = id,
+    firstName = firstName,
+    lastName = lastName,
+    email = email,
+)

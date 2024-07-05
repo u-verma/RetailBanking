@@ -15,7 +15,7 @@ fun now(): ZonedDateTime = ZonedDateTime.now(clock)
 
 fun Long.toZoneDateTimeFromMilli(): ZonedDateTime = ZonedDateTime.ofInstant(ofEpochMilli(this), clock.zone)
 
-fun String.toLocalDate(): LocalDate = LocalDate.parse(this, DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+fun String.toLocalDate(): LocalDate = LocalDate.parse(this, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 
 /*
 fun toZoneDateTimeFromMilli(epochTime: Long): ZonedDateTime {
