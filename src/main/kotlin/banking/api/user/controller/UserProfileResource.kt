@@ -47,5 +47,5 @@ interface UserProfileResource {
     @PutMapping("/{id}")
     @ResponseStatus(OK)
     @ResponseBody
-    fun updateUserProfile(@PathVariable("id") id: String, @RequestBody request: UpdateUserProfileRequest): UserProfileResponse
+    fun updateUserProfile(@PathVariable("id") id: String, @RequestBody updateRequest: UpdateUserProfileRequest): UserProfileResponse
 }
