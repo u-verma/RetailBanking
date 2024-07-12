@@ -4,15 +4,15 @@ import banking.api.customer.convertor.toCustomerEntity
 import banking.api.customer.convertor.toCustomerResponse
 import banking.api.customer.domain.CustomerRequest
 import banking.api.customer.domain.CustomerResponse
-import banking.api.customer.persitence.entity.CustomerEntity
 import banking.api.customer.persitence.repository.AddressRepository
 import banking.api.customer.persitence.repository.CustomerRepository
-import org.springframework.web.client.HttpClientErrorException.NotFound
+import org.springframework.stereotype.Service
 
-class CustomerService {
-
-    private val customerRepository = CustomerRepository()
-    private val addressRepository = AddressRepository()
+@Service
+class CustomerService(
+    private val customerRepository:CustomerRepository,
+    private val addressRepository:AddressRepository
+) {
 
     fun registerCustomer(request: CustomerRequest): CustomerResponse {
 

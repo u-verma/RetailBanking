@@ -41,6 +41,6 @@ interface CustomerResource {
     @GetMapping("/search")
     @ResponseStatus(OK)
     @ResponseBody
-    fun getCustomerByName(@RequestParam name: String): CustomerResponse
+    fun getCustomerByName(@PathVariable name: String): CustomerResponse
 
 }
