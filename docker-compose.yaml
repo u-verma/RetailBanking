@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  banking-app-db:
+    container_name: banking-app-db
+    image: library/postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=banking_app
+    ports:
+      - 15430:5432
+    expose:
+      - 15430

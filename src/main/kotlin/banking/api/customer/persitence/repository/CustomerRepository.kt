@@ -1,8 +1,11 @@
 package banking.api.customer.persitence.repository
 
 import banking.api.customer.persitence.entity.CustomerEntity
+import org.springframework.stereotype.Component
+import org.springframework.stereotype.Repository
 import java.util.concurrent.ConcurrentHashMap
 
+@Repository
 class CustomerRepository {
 
     private val customerDatabase = ConcurrentHashMap<String, CustomerEntity>()
